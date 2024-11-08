@@ -1,9 +1,1 @@
-#!/usr/bin/env bash
-set -xo pipefail
-
-pomodoroStatus="$(/nix/store/xas9s9pp0zl5w4j8dlw0xln7jyabx6ix-openpomodoro-cli-0.3.0/bin/pomodoro history | /nix/store/hlb7hqj5g635y1vsp2kalgr07pxs5icv-coreutils-full-9.5/bin/tail -2)"
-/nix/store/8jq3xqcw7cp459vfzgwbrj0ryyqhxaj3-libnotify-0.8.3/bin/notify-send "Pomodoro start 🚀" "<b>$pomodoroStatus</b>" &
-sleep "$(/nix/store/hlb7hqj5g635y1vsp2kalgr07pxs5icv-coreutils-full-9.5/bin/tail -n 1 /home/alice/.pomodoro/history | /nix/store/nysgss3ggh3dv7mz08n28h29lazxhyc1-gnugrep-3.11/bin/grep -oP 'duration=\K[0-9]+')"m
-/nix/store/nknka9rgif83wdqhi7xj8s1m3r2ykj5l-pipewire-1.2.5/bin/pw-play /home/alice/.pomodoro/hooks/music.mp3
-pomodoroStatus="$(/nix/store/xas9s9pp0zl5w4j8dlw0xln7jyabx6ix-openpomodoro-cli-0.3.0/bin/pomodoro history | /nix/store/hlb7hqj5g635y1vsp2kalgr07pxs5icv-coreutils-full-9.5/bin/tail -2)"
-/nix/store/8jq3xqcw7cp459vfzgwbrj0ryyqhxaj3-libnotify-0.8.3/bin/notify-send "Pomodoro finished ✅🏁" "<b>$pomodoroStatus</b>"    
+/run/secrets/rendered/pomodoro-start
